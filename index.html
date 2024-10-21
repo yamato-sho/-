@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+    <head>
+        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+        <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+        <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
+        <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
+        <link rel="stylesheet" href="css/style.css">
+        <script src="sample1.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <body style="margin: 0; overflow: hidden;">
+        <div class="for-pc">
+            パソコンの時に表示する内容a
+          </div>
+          <div class="for-sp">
+            スマホの時に表示する内容
+          </div>
+          
+
+        <div class="box" >
+    
+        
+        <label for="modalToggle" class="modal-open-button">open</label>
+        <input type="checkbox" id="modalToggle" class="modal-checkbox">
+        <div class="modal" id="modal">
+        <div class="modal-wrapper">
+        <label for="modalToggle" class="close">&times;</label>
+        <div class="modal-content">
+        <h1>Sample</h1>
+        <p>This is a sample modal content. <br><br>
+        You can place any text or HTML content here.<br><br>
+        Modals are useful for displaying information, alerts, or interactive elements without leaving the current page</p>
+        </div>
+        </div>
+        </div>
+    </div>
+        
+        <a-scene
+            vr-mode-ui="enabled: false;"
+            loading-screen="enabled: false;"
+            arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
+            id="scene"
+            embedded
+            gesture-detector
+        >
+            <a-marker
+                id="animated-marker"
+                type="pattern"
+                preset="custom"
+                url="assets/pattern.patt"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+                id="markerA"
+            >
+                <a-image
+                    src="assets/aa.jpg"
+                    scale="1 1 1"
+                    class="clickable"
+                    rotation="-90 0 0"
+                    gesture-handler
+                ></a-image>
+            </a-marker>
+
+            <a-entity camera></a-entity>
+        </a-scene>
+
+        
+       
+        <!-- <a-marker
+            id="animated-marker"
+            type="pattern"
+            preset="custom"
+            url="assets/pattern-3618.patt"
+            raycaster="objects: .clickable1"
+            emitevents="true"
+            cursor="fuse: false; rayOrigin: mouse;"
+            id="markerA"
+        >
+            <a-image
+                src="assets/asset.jpeg"
+                scale="1 1 1"
+                class="clickable1"
+                rotation="-90 0 0"
+                gesture-handler
+            ></a-image>
+        </a-marker> -->
+    
+        <a-entity camera></a-entity>
+        <a-box color="red"></a-box>
+        <a-camera position="0 0 4"></a-camera>
+    </a-scene>
+
+  
+
+    </body>
+</html>
